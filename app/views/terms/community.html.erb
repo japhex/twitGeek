@@ -1,0 +1,10 @@
+<section id="community">
+	<h2>Recently Added Terms</h2>
+	<% if user_signed_in? %>
+			<% @terms.each_with_index do |term,i| %>
+				<article data-feed-name="<%= term.name %>" <% if i==0 %>class="active"<% end %>>
+					<%= term.name %>
+				</article>
+			<% end %>
+	<% end %>
+</section>
