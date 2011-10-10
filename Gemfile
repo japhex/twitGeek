@@ -8,7 +8,7 @@ gem 'rails', '3.1.0'
 gem 'sqlite3'
 gem 'devise', "~> 1.4.7"
 gem 'json'
-gem 'rack', '1.3.3'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -18,6 +18,10 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :production do
+  gem 'pg'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
