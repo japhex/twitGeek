@@ -6,7 +6,7 @@
  *= require_tree . 
 */
 
-#container {width:100%;margin:0 auto;padding:0 0 20px 0;position:relative;}
+#container {width:100%;margin:0 auto;padding:0 0 10px 0;position:relative;}
 #sticky-bar {border-bottom:2px solid #C2E078;height:20px;background:#212b40;padding:15px 0 10px 0;color:#fff;position:fixed;width:100%;z-index:1;box-shadow:0 0 6px #000000;}
 #sticky-bar a {color:#fff;}
 #sticky-bar #logo {color:#fff;padding-left:10px;font-family:'Bangers', cursive;font-size:3.5em;text-decoration:none;position:absolute;top:1px;text-shadow: 0px 2px 3px #000;}
