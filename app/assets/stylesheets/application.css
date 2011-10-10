@@ -7,7 +7,7 @@
 */
 
 #container {width:100%;margin:0 auto;padding:0 0 20px 0;position:relative;}
-#sticky-bar {height:20px;background:#212b40;padding:15px 0 10px 0;color:#fff;position:fixed;width:100%;z-index:1;box-shadow:0 0 3px #000000;}
+#sticky-bar {border-bottom:2px solid #C2E078;height:20px;background:#212b40;padding:15px 0 10px 0;color:#fff;position:fixed;width:100%;z-index:1;box-shadow:0 0 6px #000000;}
 #sticky-bar a {color:#fff;}
 #sticky-bar #logo {color:#fff;padding-left:10px;font-family:'Bangers', cursive;font-size:3.5em;text-decoration:none;position:absolute;top:1px;text-shadow: 0px 2px 3px #000;}
 #user-nav {float:right;padding-right:10px;}
@@ -16,14 +16,15 @@
 #navigation a {text-decoration:none;}
 #navigation a:hover {text-decoration:underline;}
 
-#new_term {margin:0 auto;width:465px;background:#547b97;text-align:center;padding:10px;border-radius:10px;overflow:hidden;margin-bottom:20px;}
+#new_term {margin:0 auto;width:465px;background:#ccc;text-align:center;padding:10px;border-radius:10px;overflow:hidden;margin-bottom:20px;}
 #new_term .field, #new_term .actions {float:left;}
 #new_term input {height:30px;font-size:1.8em;box-shadow:0 0 1px #000 inset;border:0;border-radius:10px;padding:5px 10px;width:330px;margin-right:7px;background:#888;color:#000;font-family:georgia;text-transform:lowercase;font-style:italic;}
 #new_term input:focus {outline:0;background:#fff;}
-#new_term .submit {background:none;font-size:1.8em;color:#fff;font-family:'Bangers', cursive;text-shadow: 0px 2px 3px #000;height:auto;width:auto;box-shadow:0 0 0 #000 inset;border-radius:0;padding:5px;margin:3px 0 0 0;font-style:normal;cursor:pointer;}
+#new_term .submit {background:none;font-size:1.8em;color:#fff;font-family:'Bangers', cursive;text-shadow: 0 0 3px #000;height:auto;width:auto;box-shadow:0 0 0 #000 inset;border-radius:0;padding:5px;margin:3px 0 0 0;font-style:normal;cursor:pointer;}
 
 
 /* USER FEEDS */
+#feed-content {position:relative;z-index:3;}
 #user-feeds {overflow:hidden;background:#ddd;border-radius:10px;padding:20px;position:relative;z-index:1;box-shadow:#000 0 2px 5px;}
 #user-feeds article {width:100%;margin-right:20px;display:none;}
 #user-feeds .active {display:block;}
@@ -34,6 +35,7 @@
 #user-feeds article ul li div {padding:5px 0;overflow:hidden;background:#666;border-bottom-left-radius:5px;border-bottom-right-radius:5px;position:absolute;left:0;bottom:0;width:100%;}
 #user-feeds article ul li .account, #user-feeds article ul li .tweet-time {text-transform:lowercase;text-decoration:none;color:#ffca00;display:block;float:left;padding-left:10px;}
 #user-feeds article ul li .tweet-time {color:#ccc;float:right;padding-right:10px;}
+#user-feeds article ul li .account-image {position:absolute;bottom:19px;right:0;border-radius:5px;width:35px;border:5px solid #666;}
 #user-feeds article ul li p a {color:#999;text-decoration:none;}
 
 #feed-nav {margin-left:20px;overflow:hidden;}
@@ -45,6 +47,8 @@
 #feed-nav .active:hover {background:#ddd;}
 #feed-nav .active a {color:#000;}
 #feed-nav .active:hover a {color:#000;}
+
+.scroll-met {position:absolute;top:30px;}
 /* ---------- */
 
 #content {padding:55px 10px 10px 10px;}

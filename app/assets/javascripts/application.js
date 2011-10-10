@@ -12,6 +12,14 @@ $(document).ready(function(){
 	// Make call to default options for user
 	initNotices();
 	twitGeek.defaultOptions();
+	$(window).scroll(function(){
+		if ($(window).scrollTop() >= 100){
+			$('#sticky-bar').css('opacity',0.2);
+		}
+		else{
+			$('#sticky-bar').css('opacity',1);			
+		}
+	});
 });
 
 var twitGeek = {};
@@ -70,3 +78,13 @@ twitGeek.deleteFeeds = function(){
 		return false;
 	});
 }
+
+
+/* --- MAY BE USEFUL
+"max_id":123430988729696256,
+"max_id_str":"123430988729696256",
+"refresh_url":"?since_id=123430988729696256&q=jquery&lang=en",
+"results":
+	[{"geo":null,
+	"to_user_id":null
+*/
