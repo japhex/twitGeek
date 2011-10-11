@@ -64,6 +64,7 @@ twitGeek.retreiveJSON = function(){
 			$('#user-feeds').find('[data-feed-name="' + feedContent +'"]').addClass('active');
 			return false;
 		});
+		twitGeek.calculateHeight();
 	  }
 	});	
 }
@@ -79,6 +80,10 @@ twitGeek.deleteFeeds = function(){
 	});
 }
 
+twitGeek.calculateHeight = function(){
+	var windowHeight = $(window).height();
+	$('#user-feeds article ul').css('height',windowHeight - 130 + 'px');
+}
 
 /* --- MAY BE USEFUL
 "max_id":123430988729696256,

@@ -119,6 +119,7 @@
           tweets = $.grep(tweets, s.filter).sort(s.comparator).slice(0, s.count);
 		  list.append($.map(tweets,function(t) { return "<li>" + expand_template(t) + "</li>"; }).join(''));
 		  $(widget).trigger("loaded").trigger((tweets.length === 0 ? "empty" : "full"));
+		$('article li:nth-child(5n)').css('margin-right','0');
         });
       }).trigger("load");
     });

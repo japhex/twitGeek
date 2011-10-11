@@ -29,7 +29,18 @@
 	</section>
 	<div id="container">
 		<section id="content">
-			<%= yield %>
+			<% if user_signed_in? %>
+				<%= yield %>
+			<% else %>
+				<div id="user-submission">
+					<section id="login" class="user-form">
+						<%= render 'devise/sessions/new' %>
+					</section>
+					<section id="register" class="user-form">
+						<%= render 'devise/registrations/new' %>
+					</section>
+				</div>
+			<% end %>
 		</section>
 	</div>
 	  <%= javascript_include_tag "application" %>
