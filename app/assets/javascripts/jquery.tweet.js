@@ -7,8 +7,8 @@
       fetch: null,                              // [integer]  how many tweets to fetch via the API (set this higher than 'count' if using the 'filter' option)
       retweets: true,                           // [boolean]  whether to fetch (official) retweets (not supported in all display modes)
       refresh_interval: 10,  					// [integer]  optional number of seconds after which to reload tweets
-      since_id: null,							// [integer]  sinceID to use to load fresh tweets
       container: null,							// [string]  container to append fresh tweets to
+	  refresh_url:null,							// [string]  optional refresh URL for tweets
 	  template: "{text}{user}{time}",            
 	  comparator: function(tweet1, tweet2) {    // [function] comparator used to sort tweets (see Array.sort)
         return tweet2["tweet_time"] - tweet1["tweet_time"];
@@ -75,13 +75,13 @@
     function build_url() {
       var proto = ('https:' == document.location.protocol ? 'https:' : 'http:');
       var count = (s.fetch === null) ? s.count : s.fetch;
-	  if (s.since_id != null){
-		return proto+'//search.twitter.com/search.json?&q='+encodeURIComponent(s.query)+'&since_id=' + s.since_id + '&rpp='+s.count+'&lang=en&callback=?';
-	  }
-	  else{
+	  	if (s.refresh_url != null){
+				return proto+'//search.twitter.com/search.json?' + s.refresh_url;
+	  	}
+			else{
       	return proto+'//search.twitter.com/search.json?&q='+encodeURIComponent(s.query)+'&rpp='+s.count+'&page=10&lang=en&callback=?';
-      }
-	}
+			}
+		}
     return this.each(function(i, widget){
       var list = $('<ul>').appendTo(widget);
 	  var expand_template = function(info) {
@@ -93,12 +93,12 @@
 			}
 			return result;
 		} else return s.template(info);
-	};
+		};
 
       $(widget).bind("load", function(){
         $.getJSON(build_url(), function(data){
           	list.empty();
-			list.attr('id',data.max_id_str);
+			list.attr('id',data.refresh_url);
           	var tweets = $.map(data.results || data, function(item){
             var screen_name = item.from_user || item.user.screen_name;
             var source = item.source;

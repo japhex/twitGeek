@@ -33,6 +33,19 @@
 				<%= yield %>
 			<% else %>
 				<div id="user-submission">
+					<section id="introduction">
+						<p>
+							twitGeek is an online dashboard for twitter queries. If you've ever just wanted 1 place to view multiple feeds at the same time, you've found it.
+							The aim is to make is easier for people (you) to follow the things you really do care about. twitGeek is 1 dashboard where you can store all of your search terms and if you close the browser in the process, don't worry - each feed gets saved automatically when you add it.
+						</p>
+						<p>
+							twitGeek was proudly developed and is maintained by myself, Jamie Lawrence. I'm an ambitious Web Developer and my aim is to always be on the forefront of anything web.
+							If you experience any issues whilst using the site, please feel free to email me at j@japhex.net, any feedback is more than welcome.
+						</p>
+						<p>
+							If you have a twitter account, you can sign in and then re-tweet anything interesting you find whilst using twitGeek by using the Connect with twitter button below.
+						</p>
+					</section>
 					<section id="login" class="user-form">
 						<%= render 'devise/sessions/new' %>
 					</section>
