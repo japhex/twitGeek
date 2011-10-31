@@ -2,30 +2,33 @@
 <html>
 <head>
   <title>TwitGeekRails</title>
-	<link href='http://fonts.googleapis.com/css?family=Bowlby+One+SC|Bangers' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Rancho' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.3.0/bootstrap.min.css">
   <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<p class="notice user-info"><%= notice %></p>
-	<p class="alert user-info"><%= alert %></p>	
-	<section id="sticky-bar">
-		<a id="logo" href="/">twitGeek</a>
-		<div id="user-nav">
-		  <% if user_signed_in? %>
-		    Signed in as <%= current_user.email %>. Not you?
-		    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %> | 
-				<%= link_to "View Profile", edit_user_registration_path %>
-		  <% else %>
-		    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-		  <% end %>
+	<p class="alert-message success"><%= notice %></p>
+	<p class="alert-message error"><%= alert %></p>	
+	<section id="sticky-bar" class="topbar">
+		<div class="topbar-inner">
+			<h3><a id="logo" href="/">twitGeek</a></h3>
+			<div id="user-nav">
+		  	<% if user_signed_in? %>
+		    	Signed in as <%= current_user.email %>. Not you?
+		    	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %> | 
+					<%= link_to "View Profile", edit_user_registration_path %>
+		  	<% else %>
+		    	<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+		  	<% end %>
+			</div>
+			<% if user_signed_in? %>
+				<ul class="nav">
+					<li><a href="/">My Feeds</a></li>
+					<li><a href="/community">Community Feeds</a></li>	
+				</ul>
+			<% end %>
 		</div>
-		<% if user_signed_in? %>
-			<ul id="navigation">
-				<li><a href="/">My Feeds</a></li>
-				<li><a href="/community">Community Feeds</a></li>	
-			</ul>
-		<% end %>
 	</section>
 	<div id="container">
 		<section id="content">
@@ -33,9 +36,9 @@
 				<%= yield %>
 			<% else %>
 				<div id="user-submission">
-					<section id="introduction">
+					<section class="page-header">
 						<p>
-							twitGeek is an online dashboard for twitter queries. If you've ever just wanted 1 place to view multiple feeds at the same time, you've found it.
+							<strong>twitGeek is an online dashboard for twitter queries.</strong> If you've ever just wanted 1 place to view multiple feeds at the same time, you've found it.
 							The aim is to make is easier for people (you) to follow the things you really do care about. twitGeek is 1 dashboard where you can store all of your search terms and if you close the browser in the process, don't worry - each feed gets saved automatically when you add it.
 						</p>
 						<p>

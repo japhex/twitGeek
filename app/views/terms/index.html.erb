@@ -6,6 +6,7 @@
 				<% current_user.terms.each_with_index do |term,i| %>
 					<article data-feed-name="<%= term.name %>" class="<% if i==0 %>active<% end %>">		
 						<%= link_to 'Delete', term, :confirm => 'Are you sure?', :method => :delete, :class => 'feed-action delete-action', :remote => true %>
+						<a href="#" class="refresh-feed">Refresh Feed</a>
 					</article>
 				<% end %>
 	</section>

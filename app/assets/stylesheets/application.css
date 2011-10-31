@@ -9,47 +9,51 @@
 
 /* -MAIN STRUCTURE */
 #container {width:100%;margin:0 auto;padding:0 0 10px 0;position:relative;}
-#sticky-bar {border-bottom:2px solid #C2E078;height:20px;background:#212b40;padding:15px 0 10px 0;color:#fff;position:fixed;width:100%;z-index:1;box-shadow:0 0 6px #000000;}
-#sticky-bar a {color:#fff;}
-#sticky-bar #logo {color:#fff;padding-left:10px;font-family:'Bangers', cursive;font-size:3.5em;text-decoration:none;position:absolute;top:1px;text-shadow: 0px 2px 3px #000;}
-#user-nav {float:right;padding-right:10px;}
+
+#user-nav {float:right;padding:12px 10px 0 0;}
+
 #navigation {margin-left:200px;}
-#navigation li {display:inline-block;padding:0 10px 0 0;}
-#navigation a {text-decoration:none;}
+#navigation li {display:inline-block;padding:0 10px 0 0;font-family:georgia;font-style:italic;text-transform:lowercase;font-size:1.2em;}
+#navigation a {text-decoration:none;color:#f2e9ce;}
 #navigation a:hover {text-decoration:underline;}
+
+h2 {font-family:georgia;font-weight:normal;font-style:italic;}
+html, body {background:#eee;height:100%;}
+form {background:#fff;padding-top:15px;}
+.input {height:28px;}
+#user_remember_me {margin-top:10px;}
+.topbar {z-index:1;}
+.topbar-inner {overflow:hidden;color:#fff;}
+.topbar-inner h3 a {margin-left:0;font-family:'Rancho', cursive;font-size:1.8em;padding:4px 10px 8px;}
+.topbar div > ul a, .nav a {padding-top:12px;}
+.field_with_errors {display:inline;}
+.alert-message {position:absolute;top:0;left:0;width:100%;display:none;z-index:2;}
+.actions ul {padding:0;margin:0;}
+.actions li {padding:0;margin:0;list-style-type:none;}
+
 /* --------------- */
 
 /* -------HOMEPAGE */
-#introduction {font-size:1.3em;padding:20px 0;}
-#introduction p {margin:10px 0;}
+.page-header {background:whitesmoke;padding:15px;}
 #user-submission {width:960px;margin:0 auto;}
-#user-submission a {color:#000;float:right;display:block;margin-top:15px;}
-.user-form {width:448px;float:left;background:#ccc;padding:15px;margin:10px 0;border-radius:40px;height:300px;border:1px solid #999;}
-.user-form h2 {font-size:4em;color:#fff;text-shadow: 0px 0 2px #000;letter-spacing:-0.1em;text-transform:lowercase;}
-.user-form input {font-size:1.2em;border-radius:10px;height:25px;border:0;float:left;width:250px;padding:0 10px;border:1px solid #999;}
-.user-form input:focus {outline:0;}
-.user-form label {float:left;width:140px;margin:10px 20px 0 0;font-weight:bold;}
-.user-form div {overflow:hidden;margin:10px 0;}
-.user-form .submit {width:auto;margin-right:16px;float:right;background:#666;color:#fff;border:0;cursor:pointer;}
-#user_remember_me {width:auto;float:right;margin-right:20px;}
-div .remember-me-label {margin:12px 0 0 10px;float:right;width:93px;}
-#login {border-top-right-radius:0;border-bottom-right-radius:0;}
-#register {border-top-left-radius:0;border-bottom-left-radius:0;}
+#user-submission p {margin:0;}
+.user-form {float:left;width:450px;margin-right:30px;}
+#register {margin:0;float:right;}
 /* --------------- */
 
 /* -----USER FEEDS */
-#new_term {margin:0 auto;width:465px;background:#ccc;text-align:center;padding:10px;border-radius:10px;overflow:hidden;margin-bottom:20px;}
-#new_term .field, #new_term .actions {float:left;}
-#new_term input {height:30px;font-size:1.8em;box-shadow:0 0 1px #000 inset;border:0;border-radius:10px;padding:5px 10px;width:330px;margin-right:7px;background:#888;color:#000;font-family:georgia;text-transform:lowercase;font-style:italic;}
-#new_term input:focus {outline:0;background:#fff;}
-#new_term .submit {background:none;font-size:1.8em;color:#fff;font-family:'Bangers', cursive;text-shadow: 0 0 3px #000;height:auto;width:auto;box-shadow:0 0 0 #000 inset;border-radius:0;padding:5px;margin:3px 0 0 0;font-style:normal;cursor:pointer;}
+#new_term {padding:15px;}
+
+.field-actions {float:left;margin:0 0 0 15px;border-left:3px solid #666;height:28px;padding:11px 0 0 10px;font-family:'Bangers', cursive;}
+.field-actions li {display:inline-block;margin:0 5px;}
+.field-actions a {text-decoration:none;color:#333;font-size:1.3em;}
 
 #feed-content {position:relative;z-index:3;}
 
 #user-feeds {overflow:hidden;background:#ddd;border-radius:10px;padding:20px;position:relative;z-index:1;box-shadow:#000 0 2px 5px;}
 #user-feeds article {width:100%;margin-right:20px;display:none;}
 #user-feeds .active {display:block;}
-#user-feeds article .feed-action {padding:7px 0 0 15px;color:#000;text-decoration:none;font-weight:bold;}
+#user-feeds article .feed-action, #user-feeds article .refresh-feed {padding:7px 0 0 15px;color:#000;text-decoration:none;font-weight:bold;}
 #user-feeds article h2 {font-family:'Bangers';font-size:2.2em;float:left;}
 #user-feeds article ul {height:550px;overflow-y:auto;clear:left;background:#ccc;border-radius:5px;padding:10px;box-shadow:inset 0 0 5px #000000;}
 #user-feeds article ul li {float:left;height:100px;width:18%;margin:0 3px 10px 0;background:#fff;line-height:1.2em;border-radius:5px;padding:10px 10px 30px 10px;overflow:hidden;position:relative;}
@@ -59,7 +63,7 @@ div .remember-me-label {margin:12px 0 0 10px;float:right;width:93px;}
 #user-feeds article ul li .account-image {position:absolute;bottom:19px;right:0;border-radius:5px;width:35px;border:5px solid #666;}
 #user-feeds article ul li p a {color:#999;text-decoration:none;}
 
-#feed-nav {margin-left:20px;overflow:hidden;}
+#feed-nav {margin:0 0 0 20px;overflow:hidden;}
 #feed-nav li {border-top:1px solid #999;cursor:pointer;display:inline-block;padding:5px 10px;background:#333;border-top-left-radius:5px;border-top-right-radius:5px;font-size:1.4em;margin:0 5px;font-family:georgia;font-style:italic;}
 #feed-nav li:hover {background:#666;}
 #feed-nav li a {text-decoration:none;color:#fff;}
@@ -75,5 +79,5 @@ div .remember-me-label {margin:12px 0 0 10px;float:right;width:93px;}
 #content {padding:55px 10px 10px 10px;overflow:hidden;}
 #content h1 {font-size:2em;}
 
-.notice, .alert {background:green;color:#fff;position:absolute;top:0;left:0;width:100%;padding:10px;display:none;z-index:2;}
-.alert {background:red;}
+#overlay {background:#fff;opacity:0.7;height:100%;width:100%;position:absolute;z-index:3;top:0;}
+#overlay img {position:fixed;height:24px;width:24px;}

@@ -95,33 +95,34 @@
 		} else return s.template(info);
 		};
 
-      $(widget).bind("load", function(){
-        $.getJSON(build_url(), function(data){
+				$(widget).bind("load", function(){
+        	$.getJSON(build_url(), function(data){
           	list.empty();
-			list.attr('id',data.refresh_url);
+						list.attr('id',data.refresh_url);
           	var tweets = $.map(data.results || data, function(item){
-            var screen_name = item.from_user || item.user.screen_name;
-            var source = item.source;
-            var user_url = "http://twitter.com/"+screen_name;
-            var avatar_url = item.profile_image_url || item.user.profile_image_url;
-            var tweet_url = "http://twitter.com/"+screen_name+"/status/"+item.id_str;
-            var retweet = (typeof(item.retweeted_status) != 'undefined');
-            var retweeted_screen_name = retweet ? item.retweeted_status.user.screen_name : null;
-            var tweet_time = parse_date(item.created_at);
-            var tweet_relative_time = relative_time(tweet_time);
-            var tweet_raw_text = retweet ? ('RT @'+retweeted_screen_name+' '+item.retweeted_status.text) : item.text; // avoid '...' in long retweets
-            var tweet_text = $([tweet_raw_text]).linkUrl().linkUser().linkHash()[0];
-            var user = '<div><a class="account twitter-anywhere-user" href="'+user_url+'">@'+screen_name+'</a>';
-            var time = '<a href="'+tweet_url+'" title="view tweet on twitter" class="tweet-time">'+tweet_relative_time+'</a></div>';
-            var text = '<p>'+$([tweet_text])[0]+ '<img class="account-image" src="' + item.profile_image_url + '" /></p>';
-			return {item: item, screen_name: screen_name, user_url: user_url, avatar_url: avatar_url, source: source, tweet_url: tweet_url, tweet_time: tweet_time, tweet_relative_time: tweet_relative_time, tweet_raw_text: tweet_raw_text, tweet_text: tweet_text, retweet: retweet, retweeted_screen_name: retweeted_screen_name, user: user, time: time, text: text};
-		});
-          tweets = $.grep(tweets, s.filter).sort(s.comparator).slice(0, s.count);
-		  list.append($.map(tweets,function(t) { return "<li>" + expand_template(t) + "</li>"; }).join(''));
-		  $(widget).trigger("loaded").trigger((tweets.length === 0 ? "empty" : "full"));
-		$('article li:nth-child(5n)').css('margin-right','0');
-        });
-      }).trigger("load");
-    });
-  };
+            	var screen_name = item.from_user || item.user.screen_name;
+            	var source = item.source;
+            	var user_url = "http://twitter.com/"+screen_name;
+            	var avatar_url = item.profile_image_url || item.user.profile_image_url;
+            	var tweet_url = "http://twitter.com/"+screen_name+"/status/"+item.id_str;
+            	var retweet = (typeof(item.retweeted_status) != 'undefined');
+            	var retweeted_screen_name = retweet ? item.retweeted_status.user.screen_name : null;
+            	var tweet_time = parse_date(item.created_at);
+            	var tweet_relative_time = relative_time(tweet_time);
+            	var tweet_raw_text = retweet ? ('RT @'+retweeted_screen_name+' '+item.retweeted_status.text) : item.text; // avoid '...' in long retweets
+            	var tweet_text = $([tweet_raw_text]).linkUrl().linkUser().linkHash()[0];
+            	var user = '<div><a class="account twitter-anywhere-user" href="'+user_url+'">@'+screen_name+'</a>';
+            	var time = '<a href="'+tweet_url+'" title="view tweet on twitter" class="tweet-time">'+tweet_relative_time+'</a></div>';
+            	var text = '<p>'+$([tweet_text])[0]+ '<img class="account-image" src="' + item.profile_image_url + '" /></p>';
+							return {item: item, screen_name: screen_name, user_url: user_url, avatar_url: avatar_url, source: source, tweet_url: tweet_url, tweet_time: tweet_time, tweet_relative_time: tweet_relative_time, tweet_raw_text: tweet_raw_text, tweet_text: tweet_text, retweet: retweet, retweeted_screen_name: retweeted_screen_name, user: user, time: time, text: text};
+						});
+      			tweets = $.grep(tweets, s.filter).sort(s.comparator).slice(0, s.count);
+		  			list.append($.map(tweets,function(t) { return "<li>" + expand_template(t) + "</li>"; }).join(''));
+		  			$(widget).trigger("loaded").trigger((tweets.length === 0 ? "empty" : "full"));
+						$('article li:nth-child(5n)').css('margin-right','0');
+						$('#overlay').fadeOut().remove();
+					});
+				}).trigger("load");
+    	});
+  	};
 })(jQuery);

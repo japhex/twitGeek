@@ -20,13 +20,17 @@ $(document).ready(function(){
 			$('#sticky-bar').css('opacity',1);			
 		}
 	});
+	$('#scroll').click(function(){
+		$(window).scrollTo('#feed-nav',800);
+		return false;
+	});
 });
 
 var twitGeek = {};
 
 // Seperate site functions
 function initNotices(){
-	$('.user-info').each(function(){
+	$('.alert-message').each(function(){
 		var $userInfo = $(this);
 		if ($userInfo.text() !== ''){
 			$userInfo.slideDown('slow',function(){
@@ -67,15 +71,14 @@ twitGeek.retreiveJSON = function(){
 		twitGeek.calculateHeight();
 	  }
 	});	
-	setInterval(function () { freshTweets() }, 10000);
-	function freshTweets(){
-		$('article ul').each(function(){
-			var searchFeed = $(this);
-			var refreshUrl = $(this).attr('id');
-			
-			searchFeed.tweet({query:searchFeed.parent().data('feed-name'),refresh_url:refreshUrl});
-		});
-	}
+
+	$('.refresh-feed').live('click',function(){
+		twitGeek.ajaxLoader();
+		var searchFeed = $(this).next();
+		var refreshUrl = $(this).next().attr('id');
+		searchFeed.tweet({query:searchFeed.parent().data('feed-name'),refresh_url:refreshUrl});
+		return false;
+	});
 }
 
 //{"refresh_url":"?since_id=124253638473433088&q=steve%20jobs&lang=en",
@@ -95,4 +98,18 @@ twitGeek.deleteFeeds = function(){
 twitGeek.calculateHeight = function(){
 	var windowHeight = $(window).height();
 	$('#user-feeds article ul').css('height',windowHeight - 130 + 'px');
+}
+
+twitGeek.ajaxLoader = function(){
+	var $overlay = $('<div id="overlay"></div>'),
+	$ajaxLoader = $('<img src="/assets/ajax-loader.gif" />'),
+	documentHeight = $(document).height(),
+	windowWidth = $(document).width(),	
+	windowHeight = $(window).height();
+	
+	$overlay.append($ajaxLoader);
+	$overlay.css('height',documentHeight);
+	$ajaxLoader.css({'left': parseInt((windowWidth - 24) / 2) + 'px','top': parseInt((windowHeight - 24) / 2) + 'px'})
+
+	$('body').append($overlay);
 }

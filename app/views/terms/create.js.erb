@@ -6,7 +6,7 @@ if ($('#user-feeds').length > 0)
 		for (i = 0; i < data.length; i++) {
 			if (i == data.length - 1){
 				$('#feed-nav').append('<li data-feed-class="' + data[i].name + '"><a href="#">' + data[i].name + '</a></li>');
-				var $tweetFeed = $('<article data-feed-name="' + data[i].name + '"><a href="/terms/' + data[i].id + '" class="feed-action delete-action" data-confirm="Are you sure?" data-remote="true" data-method="delete" rel="nofollow">Delete</a></article>');
+				var $tweetFeed = $('<article data-feed-name="' + data[i].name + '"><a href="/terms/' + data[i].id + '" class="feed-action delete-action" data-confirm="Are you sure?" data-remote="true" data-method="delete" rel="nofollow">Delete</a><a href="#" class="refresh-feed">Refresh Feed</a></article>');
 				$tweetFeed.appendTo('#user-feeds').tweet({query:data[i].name});
 			}				
 		}
