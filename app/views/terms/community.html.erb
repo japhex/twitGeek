@@ -1,10 +1,48 @@
-<section id="community">
-	<h2>Recently Added Terms</h2>
-	<% if user_signed_in? %>
-			<% @terms.each_with_index do |term,i| %>
-				<article data-feed-name="<%= term.name %>" <% if i==0 %>class="active"<% end %>>
-					<%= term.name %>
-				</article>
+<div id="community">
+	<section id="recently-added">
+		<h2>Recently Added Terms</h2>
+		<div>
+			<% if user_signed_in? %>
+					<% @terms.each_with_index do |term,i| %>
+						<article data-feed-name="<%= term.name %>" <% if i==0 %>class="active"<% end %>>
+							<%= term.name %> <span class="label success">New</span>
+						</article>
+					<% end %>
 			<% end %>
-	<% end %>
-</section>
+		</div>
+	</section>
+	<section id="most-popular-day">
+		<h2>Most Popular Terms of the Day</h2>
+		<div>
+			<% if user_signed_in? %>
+					<% @termCountToday.each_with_index do |term,i| %>
+						<article data-feed-name="<%= term.name %>" <% if i==0 %>class="active"<% end %>>
+							<%= term.name %>
+							<% if term.count > 10 %>
+								(<%= term.count %>) <span class="label warning">Popular</span>
+							<% else %>
+								(<%= term.count %>)
+							<% end %>
+						</article>
+					<% end %>
+			<% end %>
+		</div>
+	</section>
+	<section id="most-popular-all-time">
+		<h2>Most Popular Terms of All Time</h2>
+		<div>
+			<% if user_signed_in? %>
+					<% @termCountAll.each_with_index do |term,i| %>
+						<article data-feed-name="<%= term.name %>" <% if i==0 %>class="active"<% end %>>
+							<%= term.name %>
+							<% if term.count > 10 %>
+								(<%= term.count %>) <span class="label warning">Popular</span>
+							<% else %>
+								(<%= term.count %>)
+							<% end %>
+						</article>
+					<% end %>
+			<% end %>
+		</div>
+	</section>
+</div>
