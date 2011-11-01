@@ -3,13 +3,15 @@ if ($('#user-feeds').length > 0)
 	$.ajax({
 	  url: "terms.json",
 	  success: function(data){
-		for (i = 0; i < data.length; i++) {
-			if (i == data.length - 1){
-				$('#feed-nav').append('<li data-feed-class="' + data[i].name + '"><a href="#">' + data[i].name + '</a></li>');
-				var $tweetFeed = $('<article data-feed-name="' + data[i].name + '"><a href="/terms/' + data[i].id + '" class="feed-action delete-action" data-confirm="Are you sure?" data-remote="true" data-method="delete" rel="nofollow">Delete</a><a href="#" class="refresh-feed">Refresh Feed</a></article>');
-				$tweetFeed.appendTo('#user-feeds').tweet({query:data[i].name});
-			}				
-		}
+			$('#term_name').val('');
+			$('#term_name').parent().find('.success').attr('disabled','disabled').addClass('disabled');
+			for (i = 0; i < data.length; i++) {
+				if (i == data.length - 1){
+					$('#feed-nav').append('<li data-feed-class="' + data[i].name + '"><a href="#">' + data[i].name + '</a></li>');
+					var $tweetFeed = $('<article data-feed-name="' + data[i].name + '"><div class="actions"><a href="/terms/' + data[i].id + '" class="btn danger small delete-action" data-confirm="Are you sure?" data-remote="true" data-method="delete" rel="nofollow">Delete</a><a href="#" class="btn info small refresh-feed">Refresh Feed</a></div></article>');
+					$tweetFeed.appendTo('#user-feeds').tweet({query:data[i].name});
+				}				
+			}
 	  }
 	});
 }

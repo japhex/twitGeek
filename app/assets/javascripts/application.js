@@ -44,6 +44,7 @@ twitGeek.defaultOptions = function(){
 	if ($('#user-feeds').length > 0) {
 		twitGeek.retreiveJSON();
 		twitGeek.deleteFeeds();
+		twitGeek.createFeed();
 		//twitGeek.updateFeeds(); - TO DO
 	}
 }
@@ -74,8 +75,8 @@ twitGeek.retreiveJSON = function(){
 
 	$('.refresh-feed').live('click',function(){
 		twitGeek.ajaxLoader();
-		var searchFeed = $(this).next();
-		var refreshUrl = $(this).next().attr('id');
+		var searchFeed = $(this).parent().next();
+		var refreshUrl = $(this).parent().next().attr('id');
 		searchFeed.tweet({query:searchFeed.parent().data('feed-name'),refresh_url:refreshUrl});
 		return false;
 	});
@@ -86,12 +87,28 @@ twitGeek.retreiveJSON = function(){
 
 twitGeek.deleteFeeds = function(){
 	$('.delete-action').live('click', function(){
-		var deleteFeed = $(this).parent().attr('data-feed-name');
+		var deleteFeed = $(this).parent().parent().attr('data-feed-name');
 		$('#feed-nav').find("[data-feed-class='" + deleteFeed +"']").remove();
 		$(this).parent().remove();
 		$('#feed-nav li:first').addClass('active');
 		$('#user-feeds article:first').addClass('active');		
 		return false;
+	});
+}
+
+twitGeek.createFeed = function(){
+	var input = $('#term_name'),
+			submitButton = input.parent().find('.success');
+			
+	input.keyup(function(){
+		if (input.val() == ""){
+			submitButton.addClass('disabled');
+			submitButton.attr('disabled','disabled');
+		}
+		else {
+			submitButton.removeClass('disabled');
+			submitButton.removeAttr('disabled');			
+		}
 	});
 }
 
