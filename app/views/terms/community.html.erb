@@ -16,12 +16,12 @@
 		<div>
 			<% if user_signed_in? %>
 					<% @termCountToday.each_with_index do |term,i| %>
-						<article data-feed-name="<%= term.name %>" <% if i==0 %>class="active"<% end %>>
-							<%= term.name %>
-							<% if term.count > 10 %>
-								(<%= term.count %>) <span class="label warning">Popular</span>
+						<article data-feed-name="<%= term[0] %>" <% if i==0 %>class="active"<% end %>>
+							<%= term[0] %>
+							<% if term[1] > 10 %>
+								(<%= term[1] %>) <span class="label warning">Popular</span>
 							<% else %>
-								(<%= term.count %>)
+								(<%= term[1] %>)
 							<% end %>
 						</article>
 					<% end %>
@@ -33,12 +33,12 @@
 		<div>
 			<% if user_signed_in? %>
 					<% @termCountAll.each_with_index do |term,i| %>
-						<article data-feed-name="<%= term.name %>" <% if i==0 %>class="active"<% end %>>
-							<%= term.name %>
-							<% if term.count > 10 %>
-								(<%= term.count %>) <span class="label warning">Popular</span>
+						<article data-feed-name="<%= term[0] %>" <% if i==0 %>class="active"<% end %>>
+							<%= term[0] %>
+							<% if term[1] > 10 %>
+								(<%= term[1] %>) <span class="label warning">Popular</span>
 							<% else %>
-								(<%= term.count %>)
+								(<%= term[1] %>)
 							<% end %>
 						</article>
 					<% end %>
