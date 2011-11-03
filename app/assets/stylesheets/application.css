@@ -80,6 +80,7 @@ form {background:#fff;padding-top:15px;}
 /*------COMMUNITY */
 
 #community-container {width:960px;margin:0 auto;position:relative;}
+#forgotten-container, #new-session-container {width:470px;margin:0 auto;position:relative;}
 
 .container-back, .container-back2, .container-back3 {position:absolute;text-indent:-9999px;height:550px;border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-left-radius:0;border-bottom-left-radius:0;box-shadow:0px 0px 2px 2px #696969;background:-moz-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(238,238,238,1) 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(238,238,238,1)));background:-webkit-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%);}
 .container-back {top:50px;left:0px;z-index:3;width:990px;}
@@ -89,10 +90,16 @@ form {background:#fff;padding-top:15px;}
 #community {overflow:hidden;padding-bottom:10px;position:relative;z-index:4;top:60px;left:15px;height:590px;}
 #community section {width:32%;float:left;margin-right:1%;height:89%;}
 #community section h2 {font-size:1.6em;}
-#community section div {background:#fff;padding:15px;box-shadow:inset 0 0 5px #000;height:88%;overflow-y:auto;}
+#community section div {background:#fff;padding:15px;height:88%;overflow-y:auto;/*box-shadow:inset 0 0 5px #000;*/}
 #community section div article:first-child {border-top:1px dashed #cecece;}
-#community section div article {border-bottom:1px dashed #cecece;padding:2px;}
+#community section div article {border-bottom:1px dashed #cecece;padding:2px;font-family:georgia;font-size:1.2em;}
+#community section div article small {font-weight:bold;}
 
+#community #recently-added {width:65%;height:40%;}
+#community #most-popular-all-time {position:absolute;top:46%;height:212px;width:65%;}
+#community #most-popular-day {margin-right:0;width:34%;}
+#community #most-popular-day article:first-child {background:#eee;padding:10px;}
+#community #most-popular-day article {font-size:2em;padding:10px 2px;text-transform:uppercase;}
 /* -------------- */
 
 /*------USER FORMS*/
