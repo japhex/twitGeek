@@ -79,9 +79,19 @@ form {background:#fff;padding-top:15px;}
 
 /*------COMMUNITY */
 
-#community {overflow:hidden;padding-bottom:10px;}
-#community section {width:30%;float:left;margin-right:1%;}
-#community section div {background:#fff;padding:15px;box-shadow:0 0 5px #000;}
+#community-container {width:960px;margin:0 auto;position:relative;}
+
+.container-back, .container-back2, .container-back3 {position:absolute;text-indent:-9999px;height:550px;border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-left-radius:0;border-bottom-left-radius:0;box-shadow:0px 0px 2px 2px #696969;background:-moz-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(238,238,238,1) 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(238,238,238,1)));background:-webkit-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%);}
+.container-back {top:50px;left:0px;z-index:3;width:990px;}
+.container-back2 {top:45px;left:5px;z-index:2;width:980px;}
+.container-back3 {top:40px;left:10px;z-index:1;width:970px;}
+
+#community {overflow:hidden;padding-bottom:10px;position:relative;z-index:4;top:60px;left:15px;height:590px;}
+#community section {width:32%;float:left;margin-right:1%;height:89%;}
+#community section h2 {font-size:1.6em;}
+#community section div {background:#fff;padding:15px;box-shadow:inset 0 0 5px #000;height:88%;overflow-y:auto;}
+#community section div article:first-child {border-top:1px dashed #cecece;}
+#community section div article {border-bottom:1px dashed #cecece;padding:2px;}
 
 /* -------------- */
 
@@ -93,7 +103,7 @@ form {background:#fff;padding-top:15px;}
 #cancel {background:#fff;padding:15px;}
 .edit-user-form {float:left;width:475px;}
 /* -------------- */
-#content {padding:55px 10px 10px 10px;overflow:hidden;}
+#content {padding:55px 10px 10px 10px;overflow:hidden;position:relative;}
 #content h1 {font-size:2em;}
 
 #overlay {background:#fff;opacity:0.7;height:100%;width:100%;position:absolute;z-index:3;top:0;}
