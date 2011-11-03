@@ -90,7 +90,7 @@ form {background:#fff;padding-top:15px;}
 #community {overflow:hidden;padding-bottom:10px;position:relative;z-index:4;top:60px;left:15px;height:590px;}
 #community section {width:32%;float:left;margin-right:1%;height:89%;}
 #community section h2 {font-size:1.6em;}
-#community section div {background:#fff;padding:15px;height:88%;overflow-y:auto;/*box-shadow:inset 0 0 5px #000;*/}
+#community section div {background:#fff;padding:15px;height:88%;overflow-y:auto;box-shadow:inset 0 0 3px #000;}
 #community section div article:first-child {border-top:1px dashed #cecece;}
 #community section div article {border-bottom:1px dashed #cecece;padding:2px;font-family:georgia;font-size:1.2em;}
 #community section div article small {font-weight:bold;}
