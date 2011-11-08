@@ -31,6 +31,7 @@ form {background:#fff;padding-top:15px;}
 .alert-message {position:absolute;top:0;left:0;width:100%;display:none;z-index:2;}
 .actions ul {padding:0;margin:0;}
 .actions li {padding:0;margin:0;list-style-type:none;}
+.label {font-family:Arial;}
 
 /* --------------- */
 
@@ -80,7 +81,7 @@ form {background:#fff;padding-top:15px;}
 /*------COMMUNITY */
 
 #community-container {width:960px;margin:0 auto;position:relative;}
-#forgotten-container, #new-session-container {width:470px;margin:0 auto;position:relative;}
+#forgotten-container, #new-session-container, #sign-up-container {width:470px;margin:0 auto;position:relative;}
 
 .container-back, .container-back2, .container-back3 {position:absolute;text-indent:-9999px;height:550px;border-top-left-radius:10px;border-top-right-radius:10px;border-bottom-left-radius:0;border-bottom-left-radius:0;box-shadow:0px 0px 2px 2px #696969;background:-moz-linear-gradient(top, rgba(238,238,238,1) 0%, rgba(238,238,238,1) 100%);background:-webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(238,238,238,1)));background:-webkit-linear-gradient(top, rgba(238,238,238,1) 0%,rgba(238,238,238,1) 100%);}
 .container-back {top:50px;left:0px;z-index:3;width:990px;}
@@ -100,6 +101,8 @@ form {background:#fff;padding-top:15px;}
 #community #most-popular-day {margin-right:0;width:34%;}
 #community #most-popular-day article:first-child {background:#eee;padding:10px;}
 #community #most-popular-day article {font-size:2em;padding:10px 2px;text-transform:uppercase;}
+#community #new_term {display:none;}
+
 /* -------------- */
 
 /*------USER FORMS*/
@@ -110,8 +113,18 @@ form {background:#fff;padding-top:15px;}
 #cancel {background:#fff;padding:15px;}
 .edit-user-form {float:left;width:475px;}
 /* -------------- */
+
 #content {padding:55px 10px 10px 10px;overflow:hidden;position:relative;}
 #content h1 {font-size:2em;}
 
 #overlay {background:#fff;opacity:0.7;height:100%;width:100%;position:absolute;z-index:3;top:0;}
 #overlay img {position:fixed;height:24px;width:24px;}
+
+/*-----VALIDATION */
+
+#error_explanation {padding:5px 15px 15px 15px;background:#ebcccc;margin-bottom:20px;border-top:1px solid #999;border-bottom:1px solid #999;}
+#error_explanation h2 {color:red;font-size:1.6em;}
+#error_explanation ul {margin:15px 0 0 15px;}
+#error_explanation li {list-style-type:asterixs;color:#000;}
+
+/* -------------- */

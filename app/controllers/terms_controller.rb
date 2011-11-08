@@ -44,7 +44,9 @@ class TermsController < ApplicationController
   # POST /terms.json
   def create
     @term = Term.new(params[:term])
-
+    @terms = Term.all(:order => 'id DESC')
+    @termCountAll = Term.group(:name).count(:name, :order => 'count_name DESC')
+    @termCountToday = Term.group(:name).count(:name, :conditions => ['created_at >= ?', Time.zone.now.at_beginning_of_day], :order => 'count_name DESC')    
     respond_to do |format|
       if @term.save
         format.html { redirect_to @term, :notice => 'Term was successfully created.' }
@@ -89,9 +91,7 @@ class TermsController < ApplicationController
   def community
     @term = Term.new
     @termCountAll = Term.group(:name).count(:name, :order => 'count_name DESC')
-    #@termCountAll = Term.find(:all, :select => 'count(*) count, name', :group => 'name', :limit => 5, :order => 'count DESC')
     @termCountToday = Term.group(:name).count(:name, :conditions => ['created_at >= ?', Time.zone.now.at_beginning_of_day], :order => 'count_name DESC')
-    #@termCountToday = Term.find(:all, :select => 'count(*) count, name', :conditions => ['created_at >= ?', Time.zone.now.at_beginning_of_day], :group => 'name', :limit => 5, :order => 'count DESC')
     @terms = Term.all(:order => 'id DESC')
     respond_to do |format|
       format.html # index.html.erb

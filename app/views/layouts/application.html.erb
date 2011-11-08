@@ -36,7 +36,7 @@
 	<div id="container">
 		<section id="content">
 				<%= yield %>
-				<% if !user_signed_in? && request.env['PATH_INFO'] != "/users/sign_in" && request.env['PATH_INFO'] != "/users/password/new" %>
+				<% if !user_signed_in? && request.env['PATH_INFO'] != "/users/sign_in" && request.env['PATH_INFO'] != "/users/password/new" && request.env['PATH_INFO'] != "/users/password/edit" && request.env['PATH_INFO'] != "/users/password" && request.env['PATH_INFO'] != "/users" && request.env['PATH_INFO'] != "/users/sign_up" %>
 				<div id="user-submission">
 					<section class="page-header">
 						<p>
