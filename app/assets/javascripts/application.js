@@ -14,11 +14,13 @@ $(document).ready(function(){
 	twitGeek.defaultOptions();
 	// Fade out title bar for user experience
 	$(window).scroll(function(){
-		if ($(window).scrollTop() >= 100){
+		if ($(window).scrollTop() >= 40){
 			$('#sticky-bar').css('opacity',0.2);
+			$('#new_term').css('opacity',0.2);
 		}
 		else{
 			$('#sticky-bar').css('opacity',1);			
+			$('#new_term').css('opacity',1);			
 		}
 	});
 	// Scroll to feeds
