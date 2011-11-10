@@ -7,8 +7,8 @@ if ($('#user-feeds').length > 0)
 			$('#term_name').parent().find('.success').attr('disabled','disabled').addClass('disabled');
 			for (i = 0; i < data.length; i++) {
 				if (i == data.length - 1){
-					$('#feed-nav').append('<li data-feed-class="' + data[i].name + '"><a href="#">' + data[i].name + '</a></li>');
-					var $tweetFeed = $('<article data-feed-name="' + data[i].name + '"><div class="actions"><a href="/terms/' + data[i].id + '" class="btn danger small delete-action" data-confirm="Are you sure?" data-remote="true" data-method="delete" rel="nofollow">Delete</a><a href="#" class="btn info small refresh-feed">Refresh Feed</a></div></article>');
+					$('#feed-nav').append('<li data-feed-class="' + data[i].name + '"><a href="#" class="feed-term">' + data[i].name + '</a><a href="/terms/' + data[i].id + '" class="danger delete-action" data-confirm="Are you sure?" data-remote="true" data-method="delete" rel="nofollow">x</a></li>');
+					var $tweetFeed = $('<article data-feed-name="' + data[i].name + '"><a href="#" class="refresh-feed"><img src="/assets/feed-refresh.png" /></a></article>');
 					$tweetFeed.appendTo('#user-feeds').tweet({query:data[i].name});
 				}				
 			}

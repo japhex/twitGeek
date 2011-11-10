@@ -70,13 +70,13 @@ twitGeek.retreiveJSON = function(){
 		for (i = 0; i < data.length; i++) {
 			var active = "";
 			if (i === 0){active = "active"} else {active = ""};
-			$('#feed-nav').append('<li class="' + active + '" data-feed-class="' + data[i].name + '"><a href="#">' + data[i].name + '</a></li>');
+			$('#feed-nav').append('<li class="' + active + '" data-feed-class="' + data[i].name + '"><a href="#" class="feed-term">' + data[i].name + '</a><a href="/terms/' + data[i].id + '" class="danger delete-action" data-confirm="Are you sure?" data-remote="true" data-method="delete" rel="nofollow">x</a></li>');
 			var $tweetFeed = $('#user-feeds').find("[data-feed-name='" + data[i].name +"']");
 			$tweetFeed.tweet({query:data[i].name});		
 		}
 		$('#feed-nav li').live('click',function(){
 			var feedTab = $(this),
-				feedContent = feedTab.find('a').text();
+			feedContent = feedTab.find('.feed-term').text();
 			feedTab.siblings().removeClass('active');
 			feedTab.addClass('active');
 			$('#user-feeds article').removeClass('active');
@@ -89,8 +89,8 @@ twitGeek.retreiveJSON = function(){
 
 	$('.refresh-feed').live('click',function(){
 		twitGeek.ajaxLoader();
-		var searchFeed = $(this).parent().next();
-		var refreshUrl = $(this).parent().next().attr('id');
+		var searchFeed = $(this).next();
+		var refreshUrl = $(this).next().attr('id');
 		searchFeed.tweet({query:searchFeed.parent().data('feed-name'),refresh_url:refreshUrl});
 		return false;
 	});

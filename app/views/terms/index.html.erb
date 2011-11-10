@@ -5,10 +5,7 @@
 	<section id="user-feeds">
 				<% current_user.terms.each_with_index do |term,i| %>
 					<article data-feed-name="<%= term.name %>" class="<% if i==0 %>active<% end %>">		
-						<div class="actions">
-							<%= link_to 'Delete', term, :confirm => 'Are you sure?', :method => :delete, :class => 'btn danger small delete-action', :remote => true %>
-							<a href="#" class="btn info small refresh-feed">Refresh Feed</a>
-						</div>
+							<a href="#" class="refresh-feed"><img src="/assets/feed-refresh.png" /></a>
 					</article>
 				<% end %>
 	</section>
