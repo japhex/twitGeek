@@ -60,7 +60,7 @@ form {background:#fff;padding-top:15px;}
 #user-feeds article ul li {float:left;height:120px;width:18%;margin:0 3px 10px 0;background:#fff;line-height:1.2em;border-radius:5px;padding:10px 10px 30px 10px;overflow:hidden;position:relative;}
 #user-feeds article ul li p {padding-right:25px;line-height:16px;}
 #user-feeds article ul li div {padding:10px 0;overflow:hidden;background:#666;border-bottom-left-radius:5px;border-bottom-right-radius:5px;position:absolute;left:0;bottom:0;width:100%;}
-#user-feeds article ul li .account, #user-feeds article ul li .tweet-time {text-transform:lowercase;text-decoration:none;color:#ffca00;display:block;}
+#user-feeds article ul li .account, #user-feeds article ul li .tweet-time {text-transform:lowercase;text-decoration:none;color:#ffca00;display:block;font-size:0.9em;}
 #user-feeds article ul li .tweet-time {color:#ccc;float:left;padding-left:10px;}
 #user-feeds article ul li .account {float:right;padding-right:40px;}
 #user-feeds article ul li .account-image {position:absolute;bottom:0;right:0;border-bottom-right-radius:5px;width:35px;z-index:1;}

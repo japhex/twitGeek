@@ -56,9 +56,9 @@
       var delta = parseInt((relative_to.getTime() - date) / 1000, 10);
       var r = '';
       if (delta < 60) {
-        r = delta + ' seconds ago';
+        r = delta + ' secs ago';
       } else if(delta < 120) {
-        r = 'a minute ago';
+        r = 'a min ago';
       } else if(delta < (45*60)) {
         r = (parseInt(delta / 60, 10)).toString() + ' mins ago';
       } else if(delta < (2*60*60)) {
@@ -79,7 +79,7 @@
 				return proto+'//search.twitter.com/search.json?' + s.refresh_url;
 	  	}
 			else{
-      	return proto+'//search.twitter.com/search.json?&q='+encodeURIComponent(s.query)+'&rpp='+s.count+'&page=10&lang=en&callback=?';
+      	return proto+'//search.twitter.com/search.json?&q='+encodeURIComponent(s.query)+'&rpp='+s.count+'&lang=en&callback=?';
 			}
 		}
     return this.each(function(i, widget){
