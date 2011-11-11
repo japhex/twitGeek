@@ -76,8 +76,7 @@
       var proto = ('https:' == document.location.protocol ? 'https:' : 'http:');
       var count = (s.fetch === null) ? s.count : s.fetch;
 	  	if (s.refresh_url != null){
-				console.log(s.refresh_url);
-				return proto+'//search.twitter.com/search.json' + s.refresh_url;
+				return proto+'//search.twitter.com/search.json' + s.refresh_url + '&callback=?';
 	  	}
 			else{
       	return proto+'//search.twitter.com/search.json?&q='+encodeURIComponent(s.query)+'&rpp='+s.count+'&lang=en&callback=?';
