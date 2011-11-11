@@ -102,8 +102,8 @@ twitGeek.retreiveJSON = function(){
 
 twitGeek.deleteFeeds = function(){
 	$('.delete-action').live('click', function(){
-		var deleteFeed = $(this).parent().parent().attr('data-feed-name');
-		$('#feed-nav').find("[data-feed-class='" + deleteFeed +"']").remove();
+		var deleteFeed = $(this).parent().find('.feed-term').text();
+		$(this).parent().parent().parent().find("[data-feed-name='" + deleteFeed +"']").remove();
 		$(this).parent().remove();
 		$('#feed-nav li:first').addClass('active');
 		$('#user-feeds article:first').addClass('active');		

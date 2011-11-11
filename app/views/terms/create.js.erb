@@ -12,6 +12,9 @@ if ($('#user-feeds').length > 0)
 					$tweetFeed.appendTo('#user-feeds').tweet({query:data[i].name});
 				}				
 			}
+			$('#intro-no-feeds').hide();
+			$('#feed-nav li:first').addClass('active');
+			$('#user-feeds article:first').addClass('active');			
 	  }
 	});
 }
