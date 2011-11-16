@@ -47,6 +47,8 @@ form {background:#fff;padding-top:15px;}
 #new_term {padding:15px;background:none;position:fixed;top:-7px;left:301px;z-index:1;}
 
 #intro-no-feeds {margin-bottom:0;}
+#intro-no-feeds strong {display:block;font-family:georgia;font-size:2em;font-style:italic;font-weight:normal;padding-bottom:20px;}
+#intro-no-feeds span {padding-top:10px;display:block;}
 
 .field-actions {float:left;margin:0 0 0 15px;border-left:3px solid #666;height:28px;padding:11px 0 0 10px;font-family:'Bangers', cursive;}
 .field-actions li {display:inline-block;margin:0 5px;}
@@ -117,6 +119,8 @@ form {background:#fff;padding-top:15px;}
 #edit-user .help-inline {display:block;}
 #cancel {background:#fff;padding:15px;}
 .edit-user-form {float:left;width:475px;}
+.current_password_field {padding:15px 0;margin:0 5px 0 5px;border-top:1px solid #CECECE;background:#EFEFEF;height:40px;}
+.current_password_field .help-inline {color:#666;}
 /* -------------- */
 
 #content {padding:55px 10px 10px 10px;overflow:hidden;position:relative;}

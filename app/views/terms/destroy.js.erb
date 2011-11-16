@@ -1,2 +1,7 @@
-$('#user-feeds').find('#intro-no-feeds').remove();
-$('#user-feeds').prepend('<p id="intro-no-feeds">Thanks for signing up! Now use the form in the header above to start creating feeds, you can create as many feeds as you like and they will always be stored for you to come back to, right here.</p>');
+if ($('#user-feeds article').length > 0){
+}
+else
+{
+	$('#user-feeds').find('#intro-no-feeds').remove();
+	$('#user-feeds').prepend('<p id="intro-no-feeds"><strong>Thanks for signing up dude!</strong> Now use the form in the header above to start creating feeds, you can create as many feeds as you like and they will always be stored for you to come back to, right here.<span>You can use the "Scroll to feeds" button above to get straight to the feeds themselves, nothing special - it will just scroll you downto a point where your main focus can be the feeds that you came here to see.</span></p>');
+}
