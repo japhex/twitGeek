@@ -25,12 +25,6 @@ $(document).ready(function(){
 			$('article').css({'background':'rgba(0, 0, 0, 0)'});			
 		}
 	});
- 	twttr.anywhere(function (T) {  
-  	$('#connect-twitter').click(function(){
-			T.signIn();
-			return false;
-		});
-  });
 	// Scroll to feeds
 	$('#scroll').click(function(){
 		$(window).scrollTo('#feed-nav',800);
@@ -45,6 +39,7 @@ var twitGeek = {
 			twitGeek.retreiveJSON();
 			twitGeek.deleteFeeds();
 			twitGeek.createFeed();
+			twitGeek.twitterAuth();
 		}
 	},	
 	createCommunityFeed: function(){
@@ -135,6 +130,32 @@ var twitGeek = {
 				newFeedNav = originalFeedNav.detach();
 				
 		$('#container').prepend(newFeedNav);
+	},
+	twitterAuth: function(){
+	 	twttr.anywhere(function (T) {  
+	  	$('#connect-twitter').click(function(){
+				if ($(this).find('span').hasClass('authorized')){
+					twttr.anywhere.signOut();
+				}
+				else {
+					T.signIn();
+				}
+				return false;
+			});
+			T.bind("authComplete", function (e, user) {
+				var currentUser = T.currentUser,
+			      screenName = currentUser.data('screen_name');
+						$('#connect-twitter span').text(screenName).addClass('authorized');
+						/*T("body").tweetBox({
+						      height: 100,
+						      width: 400,
+						      defaultContent: "This on bit.ly/tgeek ->"
+						});*/						
+			});		
+			T.bind("signOut", function (e) {
+				$('#connect-twitter span').text('Connect').removeClass('authorized');
+			});
+	  });		
 	}
 };
 
