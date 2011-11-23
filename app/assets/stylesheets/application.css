@@ -32,6 +32,8 @@ form {background:#fff;padding-top:15px;}
 .actions ul {padding:0;margin:0;}
 .actions li {padding:0;margin:0;list-style-type:none;}
 .label {font-family:Arial;}
+#term_name {width:190px;}
+#connect-twitter img {float:left;padding-right:5px;}
 
 /* --------------- */
 
@@ -44,11 +46,11 @@ form {background:#fff;padding-top:15px;}
 /* --------------- */
 
 /* -----USER FEEDS */
-#new_term {padding:15px;background:none;position:fixed;top:-7px;left:301px;z-index:1;}
+#new_term {padding:15px;background:none;position:fixed;top:-7px;left:325px;z-index:1;}
 
-#intro-no-feeds {margin-bottom:0;}
-#intro-no-feeds strong {display:block;font-family:georgia;font-size:2em;font-style:italic;font-weight:normal;padding-bottom:20px;}
-#intro-no-feeds span {padding-top:10px;display:block;}
+#intro-no-feeds {margin-bottom:0;color:#222;background:rgba(0, 0, 0, 0.2);padding:10px;}
+#intro-no-feeds strong {color:#000;display:block;font-family:georgia;font-size:2em;font-style:italic;font-weight:normal;padding-bottom:20px;}
+#intro-no-feeds span {padding-top:5px;display:block;}
 
 .field-actions {float:left;margin:0 0 0 15px;border-left:3px solid #666;height:28px;padding:11px 0 0 10px;font-family:'Bangers', cursive;}
 .field-actions li {display:inline-block;margin:0 5px;}
@@ -62,17 +64,7 @@ form {background:#fff;padding-top:15px;}
 #user-feeds article h2 {font-family:'Bangers';font-size:2.2em;float:left;}
 #user-feeds article ul {height:550px;overflow-y:auto;clear:left;padding:10px;margin:0;}
 #user-feeds article ul li {float:left;height:220px;width:220px;overflow:hidden;position:relative;margin-right:10px;}
-#user-feeds article ul li::after {position: absolute;
-display: block;
-content: "";  
-border-color: #fff transparent transparent transparent;
-border-style: solid;
-border-width: 10px;
-height:0;
-width:0;
-position:absolute;
-bottom:40px;
-left:13em;}
+#user-feeds article ul li::after {position: absolute;display:block;content:"";  border-color:#fff transparent transparent transparent;border-style:solid;border-width:10px;height:0;width:0;position:absolute;bottom:40px;left:13em;}
 #user-feeds article ul li p {color:#333;margin-bottom:5px;padding-right:25px;line-height:16px;background:#fff;height:110px;padding:25px;border-radius:15px;}
 #user-feeds article ul li div {padding:5px 0;overflow:hidden;width:100%;}
 #user-feeds article ul li .account, #user-feeds article ul li .tweet-time {text-transform:lowercase;text-decoration:none;color:#ffca00;display:block;font-size:0.9em;}
@@ -135,8 +127,9 @@ left:13em;}
 .current_password_field .help-inline {color:#666;}
 /* -------------- */
 
-#content {padding:0 10px 10px 10px;overflow:hidden;position:relative;}
+#content {padding:55px 10px 10px 10px;overflow:hidden;position:relative;}
 #content h1 {font-size:2em;}
+.feeds #content {padding-top:0;}
 
 #overlay {background:#fff;opacity:0.7;height:100%;width:100%;position:absolute;z-index:3;top:0;}
 #overlay img {position:fixed;height:24px;width:24px;}

@@ -25,6 +25,12 @@ $(document).ready(function(){
 			$('article').css({'background':'rgba(0, 0, 0, 0)'});			
 		}
 	});
+ 	twttr.anywhere(function (T) {  
+  	$('#connect-twitter').click(function(){
+			T.signIn();
+			return false;
+		});
+  });
 	// Scroll to feeds
 	$('#scroll').click(function(){
 		$(window).scrollTo('#feed-nav',800);

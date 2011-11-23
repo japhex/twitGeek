@@ -7,7 +7,7 @@
   <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body <% if request.env['PATH_INFO'] == "/" %>class="feeds"<% end %>>
 	<p class="alert-message success"><%= notice %></p>
 	<p class="alert-message error"><%= alert %></p>	
 	<section id="sticky-bar" class="topbar">
@@ -24,8 +24,8 @@
 			</div>
 			<% if user_signed_in? %>
 				<ul class="nav">
-					<li><a href="/">My Feeds</a></li>
 					<li><a href="/community">Community Feeds</a></li>	
+					<li><a id="connect-twitter" href="#"><img src="/assets/icon_connect.png" /> Connect</a></li>
 				</ul>
 			<% end %>
 		</div>
@@ -58,7 +58,9 @@
 			<% end %>
 		</section>
 	</div>
-	  <%= javascript_include_tag "application" %>
-	  <%= javascript_include_tag "jquery.tweet.js" %>
+	<script src="http://platform.twitter.com/anywhere.js?id=HjX4ibzwrpwmXqKT5krADA&v=1"></script>
+	<script src="http://platform.twitter.com/widgets.js"></script>	
+	<%= javascript_include_tag "application" %>
+	<%= javascript_include_tag "jquery.tweet.js" %>
 </body>
 </html>
