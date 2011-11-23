@@ -1,7 +1,9 @@
 <% if user_signed_in? %>
 <%= render "terms/new" %>
 <section id="feed-content">
-	<ul id="feed-nav"></ul>
+	<div id="feed-nav">
+		<ul class="topbar-inner"></ul>
+	</div>
 	<section id="user-feeds">
 		<%if !current_user.terms.any?%>
 			<p id="intro-no-feeds">

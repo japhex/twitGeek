@@ -7,14 +7,15 @@ if ($('#user-feeds').length > 0)
 			$('#term_name').parent().find('.success').attr('disabled','disabled').addClass('disabled');
 			for (i = 0; i < data.length; i++) {
 				if (i == data.length - 1){
-					$('#feed-nav').append('<li data-feed-class="' + data[i].name + '"><a href="#" class="feed-term">' + data[i].name + '</a><a href="/terms/' + data[i].id + '" class="danger delete-action" data-confirm="Are you sure?" data-remote="true" data-method="delete" rel="nofollow">x</a></li>');
+					$('#feed-nav ul').append('<li data-feed-class="' + data[i].name + '"><a href="#" class="feed-term">' + data[i].name + '</a><a href="/terms/' + data[i].id + '" class="danger delete-action" data-confirm="Are you sure?" data-remote="true" data-method="delete" rel="nofollow">x</a></li>');
 					var $tweetFeed = $('<article data-feed-name="' + data[i].name + '"><a href="#" class="refresh-feed"><img src="/assets/feed-refresh.png" /></a></article>');
 					$tweetFeed.appendTo('#user-feeds').tweet({query:data[i].name});
 				}				
 			}
 			$('#intro-no-feeds').hide();
 			$('#feed-nav li:first').addClass('active');
-			$('#user-feeds article:first').addClass('active');			
+			//$('#user-feeds article').removeClass('active');
+			//$('#user-feeds article:first').addClass('active');			
 	  }
 	});
 }
