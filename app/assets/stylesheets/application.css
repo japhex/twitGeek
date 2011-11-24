@@ -33,8 +33,10 @@ form {background:#fff;padding-top:15px;}
 .actions li {padding:0;margin:0;list-style-type:none;}
 .label {font-family:Arial;}
 #term_name {width:190px;}
-#connect-twitter img {float:left;padding-right:5px;}
-
+.topbar div > ul a, .nav a {padding-top:7px;}
+.nav li {height:15px;}
+.nav li img {padding-top:5px;}
+.nav li:first-child img {padding-top:3px;}
 /* --------------- */
 
 /* -------HOMEPAGE */

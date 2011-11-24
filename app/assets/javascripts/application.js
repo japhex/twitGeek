@@ -134,7 +134,7 @@ var twitGeek = {
 	twitterAuth: function(){
 	 	twttr.anywhere(function (T) {  
 	  	$('#connect-twitter').click(function(){
-				if ($(this).find('span').hasClass('authorized')){
+				if ($(this).find('img').hasClass('authorized')){
 					twttr.anywhere.signOut();
 				}
 				else {
@@ -143,9 +143,12 @@ var twitGeek = {
 				return false;
 			});
 			T.bind("authComplete", function (e, user) {
-				var currentUser = T.currentUser,
-			      screenName = currentUser.data('screen_name');
-						$('#connect-twitter span').text(screenName).addClass('authorized');
+				//var currentUser = T.currentUser,
+			  //    screenName = currentUser.data('screen_name');
+						
+				var twitterImgSrc = $('#connect-twitter img').attr('src');
+				twitterImgSrc = twitterImgSrc.replace('icon_twitter_noauth.png','icon_connect.png');
+				$('#connect-twitter img').attr('src',twitterImgSrc).addClass('authorized');
 						/*T("body").tweetBox({
 						      height: 100,
 						      width: 400,
@@ -153,7 +156,9 @@ var twitGeek = {
 						});*/						
 			});		
 			T.bind("signOut", function (e) {
-				$('#connect-twitter span').text('Connect').removeClass('authorized');
+				var twitterImgSrc = $('#connect-twitter img').attr('src');
+				twitterImgSrc = twitterImgSrc.replace('icon_connect.png','icon_twitter_noauth.png');
+				$('#connect-twitter img').attr('src',twitterImgSrc).addClass('authorized');
 			});
 	  });		
 	}
