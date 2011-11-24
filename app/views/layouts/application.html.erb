@@ -7,7 +7,7 @@
   <%= stylesheet_link_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body <% if request.env['PATH_INFO'] == "/" %>class="feeds"<% end %>>
+<body <% if user_signed_in? && request.env['PATH_INFO'] == "/" %>class="feeds"<% end %>>
 	<p class="alert-message success"><%= notice %></p>
 	<p class="alert-message error"><%= alert %></p>	
 	<section id="sticky-bar" class="topbar">
