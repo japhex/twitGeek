@@ -24,7 +24,7 @@
 			</div>
 			<% if user_signed_in? %>
 				<ul class="nav">
-					<li><a href="/community"><img src="/assets/icon_community.png" /></a></li>	
+					<li><a href="/community"><% if request.env['PATH_INFO'] == "/community" %><img src="/assets/icon_community_on.png" /><% else %><img src="/assets/icon_community.png" /><% end %></a></li>	
 					<li><a id="connect-twitter" href="#"><img src="/assets/icon_twitter_noauth.png" /> <span></span></a></li>
 				</ul>
 			<% end %>
