@@ -66,11 +66,12 @@ class TermsController < ApplicationController
 
     respond_to do |format|
       if @term.update_attributes(params[:term])
+        format.js        
         format.html { redirect_to @term, :notice => 'Term was successfully updated.' }
-        format.json { head :ok }
+        format.json { respond_with_bip(@term) }
       else
         format.html { render :action => "edit" }
-        format.json { render :json => @term.errors, :status => :unprocessable_entity }
+        format.json { respond_with_bip(@term) }
       end
     end
   end

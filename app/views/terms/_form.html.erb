@@ -14,7 +14,6 @@
   <div class="field">
     <%= f.text_field :name, :placeholder => 'Feed name...' %>
 		<%= f.hidden_field :user_id, :value => current_user.id %>
-		<%= f.submit :class => 'btn success disabled', :disabled => 'disabled' %>
-		<a class="btn" id="scroll" href="#">Scroll to Feeds</a>
+		<%= f.submit :class => 'btn primary disabled', :disabled => 'disabled' %>
   </div>
 <% end %>

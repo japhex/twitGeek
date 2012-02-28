@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'devise', "~> 1.4.7"
 gem 'json'
 gem 'dalli'
+gem 'gravtastic'
+gem 'best_in_place'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,7 +20,7 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
+gem "jquery-rails", "~> 1.0.19"
 
 group :production do
   gem 'pg'

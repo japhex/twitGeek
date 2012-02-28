@@ -22,3 +22,5 @@ else{
 	$('.alert-message.success').html('Feed created successfully - added to your dashboard.');
 	initNotices();
 }
+$('#feed-details').find('ul').html('<%= escape_javascript(render( :partial => "feedlist" )) %>');
+$('.best_in_place').best_in_place();

@@ -12,10 +12,10 @@
 	<p class="alert-message error"><%= alert %></p>	
 	<section id="sticky-bar" class="topbar">
 		<div class="topbar-inner">
-			<h3><a id="logo" href="/">twitGeek</a></h3>
+			<h3><a id="logo" href="/">twit<span>Geek</span></a></h3>
 			<div id="user-nav">
 		  	<% if user_signed_in? %>
-		    	Signed in as <%= current_user.email %>. Not you?
+		    	Signed in as <%= current_user.email %>.
 		    	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %> | 
 					<%= link_to "View Profile", edit_user_registration_path %>
 		  	<% else %>

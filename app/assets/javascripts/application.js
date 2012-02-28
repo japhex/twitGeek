@@ -6,6 +6,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.purr
+//= require best_in_place
 //= require_tree .
 
 $(document).ready(function(){
@@ -25,21 +27,18 @@ $(document).ready(function(){
 			$('article').css({'background':'rgba(0, 0, 0, 0)'});			
 		}
 	});
-	// Scroll to feeds
-	$('#scroll').click(function(){
-		$(window).scrollTo('#feed-nav',800);
-		return false;
-	});
 });
 
 var twitGeek = {
 	defaultOptions: function(){
-		twitGeek.createCommunityFeed();
+		twitGeek.createCommunityFeed();		
 		if ($('#user-feeds').length > 0) {
 			twitGeek.retreiveJSON();
 			twitGeek.deleteFeeds();
 			twitGeek.createFeed();
 			twitGeek.twitterAuth();
+			twitGeek.toggleFeedView();
+			twitGeek.contentEditable();
 		}
 	},	
 	createCommunityFeed: function(){
@@ -58,6 +57,7 @@ var twitGeek = {
 					var active = "";
 					if (i === 0){active = "active"} else {active = ""};
 					$('#feed-nav ul').append('<li class="' + active + '" data-feed-class="' + data[i].name + '"><a href="#" class="feed-term">' + data[i].name + '</a><a href="/terms/' + data[i].id + '" class="danger delete-action" data-confirm="Are you sure?" data-remote="true" data-method="delete" rel="nofollow">x</a></li>');
+					$('#user-feeds').append('<article data-feed-name="' + data[i].name + '" class="' + active + '"><a href="#" class="refresh-feed"><img src="/assets/feed-refresh.png" /></a></article>')
 					var $tweetFeed = $('#user-feeds').find("[data-feed-name='" + data[i].name +"']");
 					$tweetFeed.tweet({query:data[i].name});		
 				}
@@ -79,7 +79,8 @@ var twitGeek = {
 			twitGeek.ajaxLoader();
 			var searchFeed = $(this).next();
 			var refreshUrl = $(this).next().attr('id');
-			searchFeed.tweet({query:searchFeed.parent().data('feed-name'),refresh_url:refreshUrl});
+			searchFeed.remove();
+			$(this).parent().tweet({query:$(this).parent().data('feed-name')});
 			return false;
 		});
 	},
@@ -95,7 +96,7 @@ var twitGeek = {
 	},
 	createFeed: function(){
 		var input = $('#term_name'),
-				submitButton = input.parent().find('.success');
+				submitButton = input.parent().find('.primary');
 
 		input.keyup(function(){
 			if (input.val() == ""){
@@ -128,9 +129,26 @@ var twitGeek = {
 	feedNavigation: function(){
 		var originalFeedNav = $('#feed-nav'),
 				newFeedNav = originalFeedNav.detach();
-				
+	
 		$('#container').prepend(newFeedNav);
+	
 	},
+	toggleFeedView: function(){
+		var launchFeeds = $('#launch-feeds'),
+				userDashboard = $('#user-dashboard'),
+				feedNav = $('#feed-nav').find('.topbar-inner'),
+				feedContent = $('#feed-content');
+	
+		launchFeeds.click(function(){
+			console.log('test');
+			userDashboard.hide();
+			feedNav.show();
+			feedContent.show();
+			$(window).scrollTo('#feed-nav',800);
+			$('body').css({'overflow-y':'hidden'});
+			return false;
+		});
+	},	
 	twitterAuth: function(){
 	 	twttr.anywhere(function (T) {  
 	  	$('#connect-twitter').click(function(){
@@ -143,9 +161,14 @@ var twitGeek = {
 				return false;
 			});
 			T.bind("authComplete", function (e, user) {
-				//var currentUser = T.currentUser,
-			  //    screenName = currentUser.data('screen_name');
-						
+					var currentUser = T.currentUser,
+			      	screenName = currentUser.data('screen_name'),
+							twitterDetails = $('#twitter-details').find('h4'),
+							userTwitterFeed = $('#authenticated-feed');
+
+				userTwitterFeed.tweet({query:'from:' + screenName});
+				twitterDetails.text('logged in as ' + screenName);
+
 				var twitterImgSrc = $('#connect-twitter img').attr('src');
 				twitterImgSrc = twitterImgSrc.replace('icon_twitter_noauth.png','icon_connect.png');
 				$('#connect-twitter img').attr('src',twitterImgSrc).addClass('authorized');
@@ -153,14 +176,22 @@ var twitGeek = {
 						      height: 100,
 						      width: 400,
 						      defaultContent: "This on bit.ly/tgeek ->"
-						});*/						
-			});		
+						});*/	
+			});	
 			T.bind("signOut", function (e) {
 				var twitterImgSrc = $('#connect-twitter img').attr('src');
 				twitterImgSrc = twitterImgSrc.replace('icon_connect.png','icon_twitter_noauth.png');
 				$('#connect-twitter img').attr('src',twitterImgSrc).addClass('authorized');
 			});
-	  });		
+	  });	
+	},
+	contentEditable: function(){
+		$('.best_in_place').best_in_place().bind('ajax:success', function(e) {
+			// FIX SO IT RE-LOADS ALL FEEDS PROPERLY
+			$('#feed-nav ul').empty();
+			$('#user-feeds').empty();
+			twitGeek.retreiveJSON();
+		});;
 	}
 };
 

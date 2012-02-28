@@ -1,10 +1,6 @@
-<% if user_signed_in? %>
-		<% current_user.terms.each do |term| %>
-			<article data-feed-name="<%= term.name %>">
-				<h2 contenteditable="true"><%= term.name %></h2>
-				<%= link_to 'Delete', term, :confirm => 'Are you sure?', :method => :delete, :class => 'feed-action' %>
-				<%= link_to 'Edit', edit_term_path(term), :class => 'feed-action' %>					
-			</article>
-		<% end %>
-	<%= link_to 'New Term', new_term_path %>
+<% current_user.terms.each do |term| %>
+	<li>
+		<%= best_in_place term, :name, :type => :input, :class => 'best_in_place' %>		
+		<span class="label"><%= link_to 'Delete', term, :confirm => 'Are you sure?', :method => :delete, :class => 'feed-action' %></span>
+	</li>
 <% end %>

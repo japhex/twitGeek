@@ -1,25 +1,39 @@
 <% if user_signed_in? %>
 <%= render "terms/new" %>
+<section id="user-dashboard">
+	<div id="user-details" class="widget">
+		<h2><%= current_user.username %></h2>
+		<div class="stats">
+			<h3>First login:<span class="label"><%= current_user.created_at.strftime("%d/%m/%Y") %></span></h3>
+			<h3>Last login:<span class="label"><%= current_user.last_sign_in_at.strftime("%d/%m/%Y") %></span></h3>
+			<h3>Login Count:<span class="label"><%= current_user.sign_in_count %></span></h3>
+		</div>
+		<%= image_tag current_user.gravatar_url, :class => 'user-image' %>
+	</div>
+	<div id="feed-details" class="widget">
+		<h2>Your feeds</h2>
+		<% if current_user.terms.any? %>
+		<a href="#" id="launch-feeds" class="btn primary">Launch Feeds</a>
+		<ul>		
+			<%= render "terms/feedlist" %>
+		</ul>
+		<% else %>
+			You currently have no feeds.
+		<% end %>
+	</div>	
+	<div id="twitter-details" class="widget">
+		<h2>Twitter details</h2>
+		<h4>Login to twitter using the icon in the top bar.</h4>
+		<div id="authenticated-feed"></div>
+	</div>	
+	<div id="feedback-details" class="widget">
+		<h2>Leave feedback</h2>
+	</div>	
+</section>
 <section id="feed-content">
 	<div id="feed-nav">
 		<ul class="topbar-inner"></ul>
 	</div>
-	<section id="user-feeds">
-		<%if !current_user.terms.any?%>
-			<p id="intro-no-feeds">
-				<strong>Thanks for signing up dude!</strong> Now use the form in the header above to start creating feeds, you can create as many feeds
-				as you like and they will always be stored for you to come back to, right here.
-				<span>
-					You can use the "Scroll to feeds" button above to get straight to the feeds themselves, nothing special - it will just scroll you down
-					to a point where your main focus can be the feeds that you came here to see.
-				</span>
-			</p>
-		<% end %>		
-				<% current_user.terms.each_with_index do |term,i| %>
-					<article data-feed-name="<%= term.name %>" class="<% if i==0 %>active<% end %>">		
-							<a href="#" class="refresh-feed"><img src="/assets/feed-refresh.png" /></a>
-					</article>
-				<% end %>
-	</section>
+			<%= render "terms/userfeeds" %>
 </section>
 <% end %>
