@@ -39,6 +39,7 @@ var twitGeek = {
 			twitGeek.twitterAuth();
 			twitGeek.toggleFeedView();
 			twitGeek.contentEditable();
+			$('#content').css({'padding-top':'0'});
 		}
 	},	
 	createCommunityFeed: function(){

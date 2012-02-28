@@ -116,6 +116,7 @@ form {background:#fff;padding-top:15px;}
 #feed-details li:first-child {border-top:1px solid #cecece;}
 #feed-details .label {background:red;display:block;float:right;font-size:9px;padding:0 4px;}
 
+#twitter-details {clear:left;float:none;}
 #twitter-details h4 {position:absolute;top:17px;left:186px;font-size:0.9em;}
 #authenticated-feed {}
 #authenticated-feed ul {margin:0;}
